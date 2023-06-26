@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Minha Conta - Hummy</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;       
+
+        }
+        .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    padding: 20px;
+    background-color: #f5f5f5;
+    margin: 0 auto;
+}
+
+.user-info {
+    width: 500px;
+    height: 460px;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    text-align: center;
+    margin: 0 auto;
+    margin-right: 115px;
+    
+}
+
+.user-info h2 {
+    margin-top: 0;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+}
+
+.user-info input[type="text"],
+.user-info input[type="email"]
+.user-info input[type="cpf"]
+.user-info input[type="telefone"]
+.user-info input[type="dnasci"]{
+  width: 100%;
+    padding: 8px;
+    font-size: 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #f2f2f2;
+    margin-bottom: 10px;
+    box-sizing: border-box;
+    
+}
+
+.user-info label {
+    font-size: 16px;
+}
+
+.user-info .save-button {
+    padding: 8px 10px;
+    font-size: 16px;
+}
+
+.balance-box {
+    width: 400px;
+    height: 600px;
+    padding: 20px;
+    background-color: #333333;
+    border-radius: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    color: #ffffff;
+    
+}
+
+.balance-box h2 {
+    margin-top: 0;
+    font-size: 30px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.balance {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.balance p {
+    color: #A4FC47;
+    font-size: 30px;
+    margin-top: 0;
+    margin-bottom: 0;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+
+}
+.saque-box h3 {
+    margin-top: 0;
+    font-size: 30px;
+    border-bottom: 1px solid #ffffff;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+
+.withdrawal-info input[type="number"] {
+  border-radius: 8px; 
+  width: 200px; 
+  font-size: 16px;
+}
+
+.withdrawal-info label {
+  font-size: 18px; 
+}
+
+.withdrawal-options {
+    margin-top: 20px;
+}
+
+.recent-withdrawals {
+    margin-top: 20px;
+}
+
+.recent-withdrawals h4 {
+    margin-top: 0;
+    font-size: 30px;
+}
+
+.recent-withdrawals ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.recent-withdrawals li {
+    margin-bottom: 5px;
+}
+.request-withdrawal-button{
+    background-color: #A4FC47;
+    color: #333333;
+    display: block;
+    width: 90%;
+    padding: 6px 12px;
+    font-size: 20px;
+    margin-bottom: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.sidebar {
+  background-color: #333333;
+  color: #ffffff;
+  padding: 20px;
+  width: 250px;
+  height: 750px;
+  position: fixed;
+  left: 0;
+}
+
+.sidebar h2 {
+  font-size: 18px;
+  margin-top: 0;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin-bottom: 10px;
+}
+
+.sidebar ul li a {
+  color: #ffffff;
+  text-decoration: none;
+}
+
+.sidebar form {
+  margin-top: 20px;
+}
+
+.sidebar input[type="text"],
+.sidebar button {
+  padding: 8px;
+  font-size: 14px;
+}
+
+.sidebar button {
+  background-color: #ffffff;
+  color: #333333;
+  border: none;
+  cursor: pointer;
+}
+
+.sidebar button:hover {
+  background-color: #cccccc;
+}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="user-info">
+            <h2>Informações do Usuário</h2>
+            <br>
+            <label for="email">E-mail:</label>
+            <input type="text" id="email" value="">
+            <br>
+            <label for="telefone">Telefone:</label>
+            <input type="text" id="telefone" value="">
+            <br>
+            <label for="senha">Senha:</label>
+            <input type="text" id="senha" value="">
+            <br>
+            <br>
+            <label for="dnasci">Data de Nascimento:</label>
+            <input type="date" id="dnasci" value="">
+            <br>
+            <br>
+            <button class="save-button">Salvar Alterações</button>
+        </div>
+        <div class="balance-box">
+            <h2>Saldo</h2>
+            <div class="balance">
+                <p><strong>R$ 1000,00</strong></p>
+            </div>
+            <br>
+            <br>
+        <div class="saque-box">
+            <h3>Sacar</h3>
+            </div>
+            <br>
+            <div class="withdrawal-info">
+              <label for="withdrawal-amount">Valor do Saque:</label>
+              <input type="number" id="withdrawal-amount" placeholder="Digite o valor do saque">
+            </div>
+            <br>
+            <div class="checkbox-group">
+                <label>
+                  <input type="radio" name="opcao" value="PIX">
+                  <span class="checkbox-custom"></span>
+                </label>
+                PIX
+                <br> 
+                <br>  
+                <div id="pix-options" style="display: none;">
+                  <label for="pix-type">Tipo de Chave:</label>
+                  <select id="pix-type">
+                    <option value="CPF">CPF</option>
+                    <option value="CNPJ">CNPJ</option>
+                    <option value="E-mail">E-mail</option>
+                    <option value="Telefone">Telefone</option>
+                  </select>
+                  <br>
+                  <br>
+                  <label for="pix-key">Chave PIX:</label>
+                  <input type="text" id="pix-key">
+                </div>   
+                <br>                    
+                <label>
+                  <input type="radio" name="opcao" value="Paypal">
+                  <span class="checkbox-custom"></span>
+                </label>
+                PayPal
+                <br>
+                <br>
+                <div id="paypal-options" style="display: none;">
+                  <label for="paypal-account-type">Tipo de Conta:</label>
+                  <select id="paypal-account-type">
+                    <option value="email">E-mail</option>
+                    <option value="telefone">Telefone</option>
+                  </select>
+                  <br>
+                  <br>
+                  <label for="paypal-account">E-mail ou Telefone:</label>
+                  <input type="text" id="paypal-account">
+                </div>
+                  <br>
+                </div>
+            <button class="request-withdrawal-button" onclick="requestWithdrawal()"><strong>Solicitar Saque</strong></button>
+            <form action="{% url 'request_withdrawal' %}" method="POST">
+            </form>
+            <div class="recent-withdrawals">
+                <h4>Últimos Saques</h4>
+                <ul>
+                    <li>12 de janeiro de 2023    R$ 100,00</li>
+                    <li>15 de março de 2023    R$ 50,00</li>
+                    <li>10 de abril de 2023    R$ 200,00</li>
+                </ul>
+            </div>
+        </div>
+        <div class="sidebar">
+          <h2>Página Inicial</h2>
+          <ul>
+            <li><a href="#">Página 1</a></li>
+          </ul>
+          
+          <h2>Outros Links</h2>
+          <ul>
+            <li><a href="#">Link 1</a></li>
+            <li><a href="#">Link 2</a></li>
+            <li><a href="#">Link 3</a></li>
+          </ul>
+          
+          <h2>Pesquisar</h2>
+          <form>
+            <input type="text" placeholder="Digite sua pesquisa" />
+            <button type="submit">Pesquisar</button>
+          </form>
+        </div>
+        
+    </div>
+    <script>
+        function requestWithdrawal() {
+            var withdrawalAmount = document.getElementById("withdrawal-amount").value;
+            var methodOptions = document.getElementsByName("opcao");
+            var selectedMethod = "";
+
+            for (var i = 0; i < methodOptions.length; i++) {
+                if (methodOptions[i].checked) {
+                    selectedMethod = methodOptions[i].value;
+                    break;
+                }
+            }
+
+            var emailContent = "Valor do Saque: R$ " + withdrawalAmount + "\n";
+            emailContent += "Método de Saque: " + selectedMethod;
+
+            var emailLink = "mailto:hummy.solicitacoes@gmail.com" +
+                "?subject=Solicitação de Saque" +
+                "&body=" + encodeURIComponent(emailContent);
+
+            window.location.href = emailLink;
+        }
+
+
+const pixCheckbox = document.querySelector('input[name="opcao"][value="PIX"]');
+
+
+const pixOptionsContainer = document.getElementById('pix-options');
+
+
+pixCheckbox.addEventListener('change', function() {
+
+  if (this.checked) {
+
+    pixOptionsContainer.style.display = 'block';
+  } else {
+
+    pixOptionsContainer.style.display = 'none';
+  }
+});
+
+
+const paypalCheckbox = document.querySelector('input[name="opcao"][value="Paypal"]');
+
+
+const paypalOptionsContainer = document.getElementById('paypal-options');
+
+
+paypalCheckbox.addEventListener('change', function() {
+
+  if (this.checked) {
+
+    paypalOptionsContainer.style.display = 'block';
+  } else {
+
+    paypalOptionsContainer.style.display = 'none';
+  }
+});
+
+    </script>
+</body>
+</html>

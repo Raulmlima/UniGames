@@ -1,0 +1,287 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Página de Login</title>
+  <style>
+    @import url('https://fonts.cdnfonts.com/css/quicksand');
+    body {
+      margin: 0;
+      padding: 0;
+      position: relative;
+    }
+
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    .container {
+      max-width: 350px;
+      margin: 0 auto;
+      padding: 40px;
+      background-color: #333333;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      border-radius: 20px;
+      position: absolute;
+      top: 50%;
+      right:-60px;
+      transform: translate(-50%, -50%);
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 30px;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: 1px; /* Aumenta o espaçamento entre as letras em 2 pixels */
+    }
+
+    input[type="text"],
+    input[type="password"], 
+    input[type="confirm your password"]{
+      outline: none; /* Remove a borda de seleção ao focar */
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 20px;
+      box-sizing: border-box;
+      margin-bottom: 20px;
+      font-family: 'Quicksand Book', sans-serif;
+      
+    }
+
+    button {
+      background-color: #fcfcfc;
+      color: #212121;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      width: 100%;
+      font-size: 20px;
+      font-weight: bold;
+      
+    }
+
+    button:hover {
+      background-color: #A4FC47;
+    }
+
+    .signup-button {
+      text-align: center;
+      margin-top: 20px;
+      
+    }
+
+    .signup-button button {
+      background-color: #4CAF50;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 20px;
+      cursor: pointer;
+      font-size: 17px;
+      font-weight: bold;
+      
+      
+    }
+
+    .forgot-password {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .forgot-password a {
+      color: #549eff;
+      text-decoration: none;
+      font-size: 14px;
+      font-family: Arial, sans-serif;
+    }
+
+    .separator-line {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+    }
+
+    .popup {
+      background-color: #333333;
+      padding: 40px;
+      border-radius: 8px;
+      max-width: 400px;
+      width: 100%;
+      text-align: center;
+       /* Adicione essas propriedades para posicionar o conteúdo à direita */
+      justify-content: flex-start;
+      align-items: flex-start;
+      position: relative; /* Adicione essa propriedade para definir um contexto de posicionamento */
+    }
+
+    .popup-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #ffffff;
+      font-family: 'Arial', sans-serif;
+      letter-spacing: 1px; /* Aumenta o espaçamento entre as letras em 2 pixels */
+      
+    }
+
+    .form-row {
+      display: flex;
+      justify-content: space-between;
+      margin-bottom: 10px;
+    }
+
+.form-row.date-input input[type="date"]{
+outline: none;
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 20px;
+  box-sizing: border-box;
+  font-family: 'Quicksand Book', sans-serif;
+}
+
+    .left-align {
+      text-align: left;
+    }
+
+    .close-button {
+      position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 14px;
+    padding: 5px;
+    width: 70px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+}
+
+.messages {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .messages li {
+    margin-bottom: 10px;
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+  }
+
+  .messages .success {
+    color: rgb(250, 250, 250);
+
+  }
+
+  .messages .error {
+    color: red;
+  }
+
+  </style>
+</head>
+
+<body>
+  <img src="{% static 'assets/imagens/Untitled-2.jpg' %}" alt="Imagem" style="width: 100%;">
+
+  <div class="container">
+    <h1>Login</h1>
+    <form id="register-form" action="{% url 'criarperfil' %}" method="POST"></form>
+      {% csrf_token %}
+      {% if messages %}
+      <ul class="messages">
+        {% for message in messages %}
+          <li{% if message.tags %} class="{{ message.tags }}"{% endif %}>{{ message }}</li>
+        {% endfor %}
+      </ul>
+    {% endif %}
+      <input type="text" name="email" placeholder="Email" required>
+      <input type="password" name="senha" placeholder="Senha" required>
+      <button type="submit">Entrar</button>
+    </form>
+    <div class="forgot-password">
+      <a href="#">Esqueceu sua senha?</a>
+    </div>
+    <div class="signup-button">
+      <button onclick="openRegisterPopup()">Cadastre-se</button>
+    </div>
+    </form>
+  </div>
+
+  <div class="overlay" id="registerOverlay">
+  <div class="popup">
+    <div class="popup-header">
+      <h2>Registro de Conta</h2>
+      <button class="close-button" onclick="closeRegisterPopup()">
+        <i class="fas fa-times"></i>
+      </button>
+    </div>
+    <form id="register-form" action="{% url 'criarperfil' %}" method="POST" onsubmit="submitRegisterForm(event)">
+      {% csrf_token %}
+      <input type="text" name="email" placeholder="Email" required>
+      <input type="password" name="senha" placeholder="Senha" required>
+      <input type="password" name="confirmar_senha" placeholder="Confirmar Senha" required>
+      <div id="error-message" class="popup-error"></div>
+      <div class="form-row date-input">
+        <input class="left-align" type="date" name="data_nascimento" placeholder="Data de Nascimento" required>
+      </div>
+      <button type="submit">Cadastrar</button>
+    </form>
+  </div>
+</div>
+
+  <script>
+    function openRegisterPopup() {
+      document.getElementById("registerOverlay").style.display = "flex";
+    }
+
+    function closeRegisterPopup() {
+      document.getElementById("registerOverlay").style.display = "none";
+    }
+    function showErrorMessage(message) {
+  const errorMessage = document.getElementById("error-message");
+  errorMessage.innerText = message;
+}
+
+// Função para enviar o formulário do popup
+function submitRegisterForm() {
+  const form = document.getElementById("register-form");
+  const confirmSenha = form.confirmar_senha.value;
+  const senha = form.senha.value;
+
+  if (senha !== confirmSenha) {
+    showErrorMessage("As senhas não coincidem.");
+    return false; // Impede o envio do formulário
+  }
+
+  // Enviar o formulário
+  form.submit();
+}
+  </script>
+</body>
+
+</html>
